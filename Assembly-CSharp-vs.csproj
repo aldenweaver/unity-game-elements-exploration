@@ -51,8 +51,11 @@
      <Compile Include="Assets\Scripts\CharController.cs" />
      <Compile Include="Assets\Scripts\CreateTempPopUp.cs" />
      <Compile Include="Assets\Scripts\FloatNotification.cs" />
+     <Compile Include="Assets\Scripts\GUIAppear.cs" />
      <Compile Include="Assets\Scripts\NotificationManager.cs" />
+     <Compile Include="Assets\Scripts\ScoreImageAppear.cs" />
      <Compile Include="Assets\Scripts\SetLifeSpawn.cs" />
+     <Compile Include="Assets\Scripts\WindowPopUp.cs" />
      <None Include="Assets\Horse\SoftAlpha.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>

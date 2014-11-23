@@ -16,6 +16,9 @@ public class CharController : MonoBehaviour {
 	public float updownRange = 60.0f;
 	float jumpSpeed = 7;
 
+	GameObject[] horsePopUpObjects;
+
+
 //	public Transform ptsPrefab = GameObject.FindGameObjectWithTag("Coins"); // drag the prefab to this variable in Inspector
 //	
 //	void SpawnPts(float points, float x, float y){
@@ -30,6 +33,10 @@ public class CharController : MonoBehaviour {
 		Screen.lockCursor = true;
 		characterController = GetComponent<CharacterController> ();
 		envObjects = GameObject.FindGameObjectsWithTag("env");
+		horsePopUpObjects = GameObject.FindGameObjectsWithTag ("HorsePopUp");
+		foreach (GameObject horsePopUpObject in horsePopUpObjects) {
+			horsePopUpObject.renderer.enabled = false;
+		}
 	}
 	
 	// Update is called once per frame
@@ -68,6 +75,10 @@ public class CharController : MonoBehaviour {
 		
 		// If object is horse, show dialoue box
 		if (other.gameObject.tag == "Horse") {
+			foreach (GameObject horsePopUpObject in horsePopUpObjects) {
+				horsePopUpObject.renderer.enabled = true;
+			}
+
 			EditorUtility.DisplayDialog ("Horseback Ride",
 			                             "Would you like to ride this horse?", "Yes", "No"); 
 			Debug.Log(horseLogText);
