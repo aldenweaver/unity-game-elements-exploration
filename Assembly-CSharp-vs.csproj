@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\FloatingImage.cs" />
      <Compile Include="Assets\Scripts\HorseGUIAppear.cs" />
      <Compile Include="Assets\Scripts\NotificationManager.cs" />
+     <Compile Include="Assets\Scripts\PowerGUIAppear.cs" />
      <Compile Include="Assets\Scripts\ScoreImageAppear.cs" />
      <Compile Include="Assets\Scripts\SetLifeSpawn.cs" />
      <Compile Include="Assets\Scripts\WindowPopUp.cs" />
