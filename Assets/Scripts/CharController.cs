@@ -7,7 +7,7 @@ public class CharController : MonoBehaviour {
 	CharacterController characterController;
 	public float movementSpeed = 5.0f;
 	public float mouseSensitivity = 5.0f;
-	GameObject[] envObjects;
+	//GameObject[] envObjects;
 	object coinsLogText = "Collided with Coins";
 	object horseLogText = "Collided with Horse";
 	
@@ -32,7 +32,6 @@ public class CharController : MonoBehaviour {
 	void Start () {
 		Screen.lockCursor = true;
 		characterController = GetComponent<CharacterController> ();
-		envObjects = GameObject.FindGameObjectsWithTag("env");
 		horsePopUpObjects = GameObject.FindGameObjectsWithTag ("HorsePopUp");
 		foreach (GameObject horsePopUpObject in horsePopUpObjects) {
 			horsePopUpObject.renderer.enabled = false;

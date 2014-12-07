@@ -47,6 +47,7 @@
 'Assets/Scripts/FloatNotification.cs'
 'Assets/Scripts/GUIAppear.cs'
 'Assets/Scripts/NotificationManager.cs'
+'Assets/Scripts/ScoreImageAppear.cs'
 'Assets/Scripts/SetLifeSpawn.cs'
 'Assets/Scripts/WindowPopUp.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
