@@ -49,9 +49,9 @@
      <Compile Include="Assets\Scripts\ActionBoxNotifications.cs" />
      <Compile Include="Assets\Scripts\CameraFacingBillboard.cs" />
      <Compile Include="Assets\Scripts\CharController.cs" />
+     <Compile Include="Assets\Scripts\CoinsGUIAppear.cs" />
      <Compile Include="Assets\Scripts\CreateTempPopUp.cs" />
-     <Compile Include="Assets\Scripts\FloatNotification.cs" />
-     <Compile Include="Assets\Scripts\GUIAppear.cs" />
+     <Compile Include="Assets\Scripts\HorseGUIAppear.cs" />
      <Compile Include="Assets\Scripts\NotificationManager.cs" />
      <Compile Include="Assets\Scripts\ScoreImageAppear.cs" />
      <Compile Include="Assets\Scripts\SetLifeSpawn.cs" />
