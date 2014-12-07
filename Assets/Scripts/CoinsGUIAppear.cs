@@ -4,13 +4,14 @@ using System.Collections;
 public class CoinsGUIAppear : MonoBehaviour {
 
 	GameObject[] coinsPopUpObjects;
+	GameObject coins;
 	
 	// Use this for initialization
 	void Start () {
 		coinsPopUpObjects = GameObject.FindGameObjectsWithTag ("CoinsPopUp");
 		setCoinsPopUpActive(false);
 		
-		Debug.Log ("Initialization of GUIAppear complete.");
+		Debug.Log ("Initialization of CoinsGUIAppear complete.");
 	}
 	
 	// Update is called once per frame

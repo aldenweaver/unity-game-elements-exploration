@@ -11,7 +11,7 @@ public class HorseGUIAppear : MonoBehaviour {
 		horsePopUpObjects = GameObject.FindGameObjectsWithTag ("HorsePopUp");
 		setHorsePopUpActive(false);
 
-		Debug.Log ("Initialization of GUIAppear complete.");
+		Debug.Log ("Initialization of HorseGUIAppear complete.");
 	}
 	
 	// Update is called once per frame

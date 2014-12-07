@@ -17,6 +17,7 @@ public class CharController : MonoBehaviour {
 	float jumpSpeed = 7;
 
 	GameObject[] horsePopUpObjects;
+	Transform pointsPrefab; // drag the prefab to this variable in Inspector
 
 
 //	public Transform ptsPrefab = GameObject.FindGameObjectWithTag("Coins"); // drag the prefab to this variable in Inspector
@@ -62,13 +63,22 @@ public class CharController : MonoBehaviour {
 		characterController.Move (speed * Time.deltaTime);
 	}
 
+	void SpawnPoints(float x, float y){
+		x = Mathf.Clamp(x, 0.05f, 0.95f); // clamp position to screen to ensure
+		y = Mathf.Clamp(y, 0.05f, 0.9f);  // the string will be visible
+		Transform gui = (Transform)Instantiate(pointsPrefab, new Vector3(x, y, 0f), Quaternion.identity);
+	}
+
 	void OnTriggerEnter(Collider other) {
-		Vector3 v = Camera.main.WorldToViewportPoint(transform.position);
+
 
 		// If object is coins, show notification
 		if (other.gameObject.tag == "Coins") {
+			Vector3 cameraView = Camera.main.WorldToViewportPoint(transform.position);
+			SpawnPoints(cameraView.x, cameraView.y);
+
 			Debug.Log(coinsLogText);
-			//SpawnPts(4200, v.x, v.y);
+
 			other.gameObject.SetActive(false);
 		}
 		
@@ -83,6 +93,7 @@ public class CharController : MonoBehaviour {
 			Debug.Log(horseLogText);
 		}
 	}
+
 	
 //[MenuItem ("Example/Place Selection On Surface")]
 //	static void createActionBox() {
