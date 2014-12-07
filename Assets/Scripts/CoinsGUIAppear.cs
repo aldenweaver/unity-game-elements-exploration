@@ -10,6 +10,8 @@ public class CoinsGUIAppear : MonoBehaviour {
 	void Start () {
 		coinsPopUpObjects = GameObject.FindGameObjectsWithTag ("CoinsPopUp");
 		setCoinsPopUpActive(false);
+
+		coins = GameObject.FindGameObjectWithTag ("Coins");
 		
 		Debug.Log ("Initialization of CoinsGUIAppear complete.");
 	}
@@ -27,6 +29,7 @@ public class CoinsGUIAppear : MonoBehaviour {
 	void OnTriggerExit (Collider collided) {
 		if(collided.tag == "Player") {
 			setCoinsPopUpActive(false);
+			coins.SetActive(false);
 		}
 	}
 	
