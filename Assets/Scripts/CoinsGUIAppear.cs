@@ -1,17 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class CoinsGUIAppear : MonoBehaviour {
 
 	GameObject[] coinsPopUpObjects;
 	GameObject coins;
-	
+	int score;
+	Image scoreImage;
+
 	// Use this for initialization
 	void Start () {
 		coinsPopUpObjects = GameObject.FindGameObjectsWithTag ("CoinsPopUp");
 		setCoinsPopUpActive(false);
 
+		//scoreImage = (Image)GameObject.FindGameObjectWithTag ("CoinsPopUp");
+
 		coins = GameObject.FindGameObjectWithTag ("Coins");
+		score = 0;
 		
 		Debug.Log ("Initialization of CoinsGUIAppear complete.");
 	}
@@ -34,11 +40,20 @@ public class CoinsGUIAppear : MonoBehaviour {
 	}
 	
 	void setCoinsPopUpActive (bool active) {
+		//scoreImage.renderer.enabled = false;
 		foreach(GameObject coinsPopUpObject in coinsPopUpObjects) {
 			coinsPopUpObject.SetActive(active);
 		}
 	}
-		
+
+//	void animateScoreNotification (int points, Image scoreImage) {
+//		score = score + points;
+//		Vector3 imageLocation = scoreImage.transform.position;
+//		imageLocation.x = imageLocation.x / Screen.width;
+//		imageLocation.y = imageLocation.y / Screen.height;
+//	
+//		scoreImage.CrossFadeAlpha(0, 5, false);		
+//	}
 		
 }
 

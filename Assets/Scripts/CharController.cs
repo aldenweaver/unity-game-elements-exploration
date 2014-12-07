@@ -17,25 +17,26 @@ public class CharController : MonoBehaviour {
 	float jumpSpeed = 7;
 
 	GameObject[] horsePopUpObjects;
+	GameObject[] coinsPopUpObjects;
 	Transform pointsPrefab; // drag the prefab to this variable in Inspector
 
 
 //	public Transform ptsPrefab = GameObject.FindGameObjectWithTag("Coins"); // drag the prefab to this variable in Inspector
-//	
-//	void SpawnPts(float points, float x, float y){
-//		x = Mathf.Clamp(x,0.05,0.95); // clamp position to screen to ensure
-//		y = Mathf.Clamp(y,0.05,0.9);  // the string will be visible
-//		Transform gui = Instantiate(ptsPrefab,Vector3(x,y,0),Quaternion.identity);
-//		gui.guiText.text = points.ToString();
-//	}
-//	
+
+
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
 		characterController = GetComponent<CharacterController> ();
+
 		horsePopUpObjects = GameObject.FindGameObjectsWithTag ("HorsePopUp");
 		foreach (GameObject horsePopUpObject in horsePopUpObjects) {
 			horsePopUpObject.renderer.enabled = false;
+		}
+
+		coinsPopUpObjects = GameObject.FindGameObjectsWithTag ("CoinsPopUp");
+		foreach (GameObject coinsPopUpObject in coinsPopUpObjects) {
+			coinsPopUpObject.renderer.enabled = false;
 		}
 	}
 	
@@ -63,37 +64,33 @@ public class CharController : MonoBehaviour {
 		characterController.Move (speed * Time.deltaTime);
 	}
 
-	void SpawnPoints(float x, float y){
-		x = Mathf.Clamp(x, 0.05f, 0.95f); // clamp position to screen to ensure
-		y = Mathf.Clamp(y, 0.05f, 0.9f);  // the string will be visible
-		Transform gui = (Transform)Instantiate(pointsPrefab, new Vector3(x, y, 0f), Quaternion.identity);
-	}
 
 	void OnTriggerEnter(Collider other) {
 
 
 		// If object is coins, show notification
 		if (other.gameObject.tag == "Coins") {
-			Vector3 cameraView = Camera.main.WorldToViewportPoint(transform.position);
-			SpawnPoints(cameraView.x, cameraView.y);
+			setObjectsActive(coinsPopUpObjects, true);
+			other.gameObject.SetActive(false);
 
 			Debug.Log(coinsLogText);
-
-			other.gameObject.SetActive(false);
 		}
 		
 		// If object is horse, show dialoue box
 		if (other.gameObject.tag == "Horse") {
-			foreach (GameObject horsePopUpObject in horsePopUpObjects) {
-				horsePopUpObject.renderer.enabled = true;
-			}
+			setObjectsActive(horsePopUpObjects, true);
 
-			EditorUtility.DisplayDialog ("Horseback Ride",
-			                             "Would you like to ride this horse?", "Yes", "No"); 
 			Debug.Log(horseLogText);
 		}
 	}
 
+
+	void setObjectsActive(GameObject[] objects, bool active) {
+		foreach (GameObject obj in objects) {
+			obj.renderer.enabled = active;
+		}
+
+	}
 	
 //[MenuItem ("Example/Place Selection On Surface")]
 //	static void createActionBox() {
